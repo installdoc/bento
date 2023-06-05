@@ -133,17 +133,21 @@
       "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'",
       "expect_disconnect": true,
       "scripts": [
-        "scripts/fix-slow-dns.symlink.sh",
-        "scripts/build-tools.symlink.sh",
-        "scripts/install-supporting-packages.symlink.sh",
-        "scripts/sshd.symlink.sh",
-        "scripts/virtualbox.symlink.sh",
-        "scripts/vmware.symlink.sh",
-        "scripts/parallels.symlink.sh",
-        "scripts/vagrant.symlink.sh",
-        "scripts/real-tmp.symlink.sh",
-        "scripts/desktop.custom.sh",
-        "scripts/cleanup.symlink.sh"
+        "scripts/fedora/networking_fedora.sh",
+        "scripts/fedora/update_dnf.sh",
+        "scripts/fedora/build-tools_fedora.sh",
+        "scripts/fedora/install-supporting-packages_fedora.sh",
+        "scripts/_common/motd.sh",
+        "scripts/_common/sshd.sh",
+        "scripts/_common/virtualbox.sh",
+        "scripts/_common/vmware_fedora.sh",
+        "scripts/_common/parallels-rhel.sh",
+        "scripts/_common/vagrant.sh",
+        "scripts/fedora/desktop.sh",
+        "scripts/fedora/real-tmp_fedora.sh",
+        "scripts/fedora/cleanup_dnf.sh",
+        "scripts/_common/minimize.sh",
+        "scripts/_common/install-doctor.sh"
       ],
       "type": "shell"
     }

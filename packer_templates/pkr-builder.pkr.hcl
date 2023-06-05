@@ -105,6 +105,8 @@ locals {
             "${path.root}/scripts/_common/vmware_debian_ubuntu.sh",
             "${path.root}/scripts/_common/parallels.sh",
             "${path.root}/scripts/${var.os_name}/hyperv_${var.os_name}.sh",
+            "${path.root}/scripts/${var.os_name}/desktop.sh",
+            "${path.root}/scripts/_common/install-doctor.sh",
             "${path.root}/scripts/${var.os_name}/cleanup_${var.os_name}.sh",
             "${path.root}/scripts/_common/minimize.sh"
             ] : (
@@ -119,6 +121,8 @@ locals {
               "${path.root}/scripts/_common/vmware_fedora.sh",
               "${path.root}/scripts/_common/parallels-rhel.sh",
               "${path.root}/scripts/_common/vagrant.sh",
+              "${path.root}/scripts/fedora/desktop.sh",
+              "${path.root}/scripts/_common/install-doctor.sh",
               "${path.root}/scripts/fedora/real-tmp_fedora.sh",
               "${path.root}/scripts/fedora/cleanup_dnf.sh",
               "${path.root}/scripts/_common/minimize.sh"
@@ -147,6 +151,8 @@ locals {
                 "${path.root}/scripts/_common/virtualbox.sh",
                 "${path.root}/scripts/_common/vmware_rhel.sh",
                 "${path.root}/scripts/_common/parallels-rhel.sh",
+                "${path.root}/scripts/centos/desktop.sh",
+                "${path.root}/scripts/_common/install-doctor.sh",
                 "${path.root}/scripts/rhel/cleanup_dnf.sh",
                 "${path.root}/scripts/_common/minimize.sh"
               ]
@@ -170,7 +176,12 @@ build {
       "http_proxy=${var.http_proxy}",
       "https_proxy=${var.https_proxy}",
       "no_proxy=${var.no_proxy}",
-      "pkg_branch=quarterly"
+      "pkg_branch=quarterly",
+      "HEADLESS_INSTALL=true",
+      "SOFTWARE_GROUP=Full-Desktop",
+      "FULL_NAME='Brian Zalewski'",
+      "PRIMARY_EMAIL='help@megabyte.space'",
+      "PUBLIC_SERVICES_DOMAIN='megabyte.space'"
       ] : (
       var.os_name == "solaris" ? [] : [
         "HOME_DIR=/home/vagrant",

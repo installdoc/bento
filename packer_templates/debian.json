@@ -119,18 +119,20 @@
       "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -S -E sh -eux '{{ .Path }}'",
       "expect_disconnect": true,
       "scripts": [
-        "{{ template_dir }}/scripts/update.symlink.sh",
-        "{{ template_dir }}/scripts/sshd.symlink.sh",
-        "{{ template_dir }}/scripts/networking.symlink.sh",
-        "{{ template_dir }}/scripts/sudoers.symlink.sh",
-        "{{ template_dir }}/scripts/vagrant.symlink.sh",
-        "{{ template_dir }}/scripts/systemd.symlink.sh",
-        "{{ template_dir }}/scripts/virtualbox.symlink.sh",
-        "{{ template_dir }}/scripts/vmware.symlink.sh",
-        "{{ template_dir }}/scripts/parallels.symlink.sh",
-        "{{ template_dir }}/scripts/cleanup.symlink.sh",
-        "{{ template_dir }}/scripts/minimize.symlink.sh",
-        "{{ template_dir }}/scripts/desktop.sh"
+        "scripts/debian/update_debian.sh",
+        "scripts/_common/motd.sh",
+        "scripts/_common/sshd.sh",
+        "scripts/debian/networking_debian.sh",
+        "scripts/debian/sudoers_debian.sh",
+        "scripts/_common/vagrant.sh",
+        "scripts/debian/systemd_debian.sh",
+        "scripts/_common/virtualbox.sh",
+        "scripts/_common/vmware_debian_ubuntu.sh",
+        "scripts/_common/parallels.sh",
+        "scripts/debian/hyperv_debian.sh",
+        "scripts/debian/desktop.sh",
+        "scripts/debian/cleanup_debian.sh",
+        "scripts/_common/minimize.sh"
       ],
       "type": "shell"
     }
