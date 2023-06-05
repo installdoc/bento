@@ -15,6 +15,10 @@ try {
   Remove-Item "C:\Windows\Temp\*" -Recurse -Force -ErrorAction SilentlyContinue
 } catch { }
 
+Write-Host "Cleaning misc files..."
+Remove-Item 'C:\PerfLogs' -Recurse
+Remove-Item 'C:\tmp' -Recurse
+
 Write-Host "Optimizing Drive"
 Optimize-Volume -DriveLetter C
 
